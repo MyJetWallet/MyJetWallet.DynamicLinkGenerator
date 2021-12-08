@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net6.0</TargetFramework>
+    <PackageProjectUrl>https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator</PackageProjectUrl>
+    <RepositoryUrl>https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator</RepositoryUrl>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Autofac" Version="6.3.0" />
+    <PackageReference Include="MyJetWallet.Domain" Version="1.1.0" />
+    <PackageReference Include="MyNoSqlServer.DataReader" Version="1.4.2" />
+    <PackageReference Include="MyNoSqlServer.DataWriter" Version="1.4.2" />
+  </ItemGroup>
+
+
+</Project>
