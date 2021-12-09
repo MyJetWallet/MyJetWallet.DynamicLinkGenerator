@@ -1,21 +1,27 @@
 {
   "format": 1,
   "restore": {
-    "/Users/pavelp/Documents/GitHub/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {}
+    "/home/runner/work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {}
   },
   "projects": {
-    "/Users/pavelp/Documents/GitHub/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {
+    "/home/runner/work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/Users/pavelp/Documents/GitHub/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
+        "projectUniqueName": "/home/runner/work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
         "projectName": "MyJetWallet.DynamicLinkGenerator",
-        "projectPath": "/Users/pavelp/Documents/GitHub/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
-        "packagesPath": "/Users/pavelp/.nuget/packages/",
-        "outputPath": "/Users/pavelp/Documents/GitHub/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/obj/",
+        "projectPath": "/home/runner/work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
+        "packagesPath": "/home/runner/.nuget/packages/",
+        "outputPath": "/home/runner/work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/obj/",
         "projectStyle": "PackageReference",
+        "configFilePaths": [
+          "/home/runner/.nuget/NuGet/NuGet.Config"
+        ],
         "originalTargetFrameworks": [
           "net6.0"
         ],
+        "sources": {
+          "https://api.nuget.org/v3/index.json": {}
+        },
         "frameworks": {
           "net6.0": {
             "targetAlias": "net6.0",
@@ -64,7 +70,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/usr/local/share/dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/runner/.dotnet/sdk/6.0.100/RuntimeIdentifierGraph.json"
         }
       }
     }
