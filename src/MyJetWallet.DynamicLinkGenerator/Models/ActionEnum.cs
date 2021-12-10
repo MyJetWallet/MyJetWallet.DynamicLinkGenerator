@@ -2,6 +2,7 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
 {
     public enum ActionEnum
     {
+        None,
         Login,
         ConfirmEmail,
         ForgotPassword,
