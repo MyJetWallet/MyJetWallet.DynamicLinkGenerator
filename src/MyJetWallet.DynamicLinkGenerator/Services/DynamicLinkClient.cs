@@ -3,6 +3,7 @@ using System.Web;
 using MyJetWallet.DynamicLinkGenerator.Models;
 using MyJetWallet.DynamicLinkGenerator.NoSql;
 using MyNoSqlServer.Abstractions;
+using Service.DynamicLinkGenerator.Domain.Models.Enums;
 
 namespace MyJetWallet.DynamicLinkGenerator.Services
 {
@@ -19,60 +20,62 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=Login&");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.Login, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
         public (string longLink, string shortLink) GenerateConfirmEmailLink(GenerateConfirmEmailLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ConfirmEmail&jw_code={request.Code}");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.ConfirmEmail, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
         public (string longLink, string shortLink) GenerateForgotPasswordLink(GenerateForgotPasswordLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ForgotPassword&jw_token={request.Token}");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.ForgotPassword, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
         public (string longLink, string shortLink) GenerateConfirmWithdrawalLink(GenerateWithdrawalLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_email_confirm&jw_operation_id={request.OperationId}");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateConfirmTransferLink(GenerateTransferLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_email_confirm&jw_operation_id={request.OperationId}");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.ConfirmTransfer, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateInviteFriendLink(GenerateInviteFriendLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=InviteFriend&");
-            return GenerateDeepLink(request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.InviteFriend, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
-        private (string longLink, string shortLink) GenerateDeepLink(DeviceTypeEnum device, string brand, string paramString)
+        private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
         {
             var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),
                 DynamicLinkSettingsNoSql.GenerateRowKey(brand));
             
             if (parameters == null)
                 throw new ArgumentException($"Unable to get link parameters for brand {brand}");
+
+            if (!parameters.LinksMap.TryGetValue(action, out var baseLinks))
+                throw new Exception($"Unable to find links for this action: {action}");
             
             var linkBase = device switch
             {
-                DeviceTypeEnum.Android => parameters.LinkBaseUrlAndroid,
-                DeviceTypeEnum.Ios => parameters.LinkBaseUrlIos,
-                DeviceTypeEnum.Unknown => parameters.LinkBaseUrlDefault,
+                DeviceTypeEnum.Android => baseLinks.BaseLinkAndroid,
+                DeviceTypeEnum.Ios => baseLinks.BaseLinkIos,
+                DeviceTypeEnum.Unknown => baseLinks.BaseLinkDefault,
                 _ => throw new ArgumentOutOfRangeException(nameof(DeviceTypeEnum),$"Unable to find base link")
             };
-            
             
             var deepLink = linkBase.Contains('?') 
                 ? $"{linkBase}&{paramString}" 
