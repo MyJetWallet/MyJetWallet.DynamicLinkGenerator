@@ -8,6 +8,9 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         ForgotPassword,
         ConfirmWithdrawal,
         ConfirmTransfer,
-        InviteFriend
+        InviteFriend,
+        KycVerification,
+        DepositStart,
+        TradingStart
     }
 }

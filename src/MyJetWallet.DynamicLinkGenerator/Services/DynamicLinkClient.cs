@@ -57,7 +57,29 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=InviteFriend&");
             return GenerateDeepLink(ActionEnum.InviteFriend, request.DeviceType, request.Brand, deepLinkParameters);
         }
-        
+
+        public (string longLink, string shortLink) GenerateKycVerificationLink(GenerateKycVerificationLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=KycVerification&");
+            return GenerateDeepLink(ActionEnum.KycVerification, request.DeviceType, request.Brand, deepLinkParameters);
+            
+        }
+
+        public (string longLink, string shortLink) GenerateDepositStartLink(GenerateDepositStartLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=DepositStart&");
+            return GenerateDeepLink(ActionEnum.DepositStart, request.DeviceType, request.Brand, deepLinkParameters);
+        }
+
+        public (string longLink, string shortLink) GenerateTradingStartLink(GenerateTradingStartLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=TradingStart&");
+            return GenerateDeepLink(ActionEnum.TradingStart, request.DeviceType, request.Brand, deepLinkParameters);        
+        }
+
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
         {
             var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),
