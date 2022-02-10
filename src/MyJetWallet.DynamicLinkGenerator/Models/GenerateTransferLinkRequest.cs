@@ -6,5 +6,6 @@ namespace MyJetWallet.DynamicLinkGenerator.Models
         public DeviceTypeEnum DeviceType { get; set; }
         public string OperationId { get; set; }
         public string ErrorCode { get; set; }
+        public string Token { get; set; }
     }
 }

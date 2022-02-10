@@ -26,7 +26,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateConfirmEmailLink(GenerateConfirmEmailLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ConfirmEmail&jw_code={request.Code}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ConfirmEmail&jw_code={request.Code}&jw_token={request.Token}");
             return GenerateDeepLink(ActionEnum.ConfirmEmail, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
@@ -40,14 +40,14 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateConfirmWithdrawalLink(GenerateWithdrawalLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_email_confirm&jw_operation_id={request.OperationId}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_email_confirm&jw_operation_id={request.OperationId}&jw_token={request.Token}");
             return GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateConfirmTransferLink(GenerateTransferLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_email_confirm&jw_operation_id={request.OperationId}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_email_confirm&jw_operation_id={request.OperationId}&jw_token={request.Token}");
             return GenerateDeepLink(ActionEnum.ConfirmTransfer, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
