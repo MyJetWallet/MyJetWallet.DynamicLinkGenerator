@@ -11,6 +11,8 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         InviteFriend,
         KycVerification,
         DepositStart,
-        TradingStart
+        TradingStart,
+        VerifyWithdrawal,
+        VerifyTransfer,
     }
 }
