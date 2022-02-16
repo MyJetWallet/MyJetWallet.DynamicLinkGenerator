@@ -40,14 +40,14 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateConfirmedWithdrawalLink(GenerateWithdrawalLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_email_confirm&jw_operation_id={request.OperationId}&jw_token={request.Token}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_email_confirm&jw_operation_id={request.OperationId}");
             return GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateConfirmedTransferLink(GenerateTransferLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_email_confirm&jw_operation_id={request.OperationId}&jw_token={request.Token}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_email_confirm&jw_operation_id={request.OperationId}");
             return GenerateDeepLink(ActionEnum.ConfirmTransfer, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
@@ -84,14 +84,14 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_verify&withdrawalProcessId={request.OperationId}&code={request.Code}&brand={request.Brand}&jw_token={request.Token}");
-            return GenerateDeepLink(ActionEnum.ConfirmTransfer, request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.VerifyWithdrawal, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateVerifyTransferLink(GenerateVerifyTransferLinkRequest request)
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_verify&transferProcessId={request.OperationId}&code={request.Code}&brand={request.Brand}&jw_token={request.Token}");
-            return GenerateDeepLink(ActionEnum.ConfirmTransfer, request.DeviceType, request.Brand, deepLinkParameters);
+            return GenerateDeepLink(ActionEnum.VerifyTransfer, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
