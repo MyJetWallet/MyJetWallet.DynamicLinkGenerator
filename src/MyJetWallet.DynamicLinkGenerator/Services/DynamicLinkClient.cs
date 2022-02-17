@@ -19,7 +19,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateLoginLink(GenerateLoginLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=Login&");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=Login&jw_email={request.Email}");
             return GenerateDeepLink(ActionEnum.Login, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
