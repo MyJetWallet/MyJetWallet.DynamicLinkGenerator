@@ -15,5 +15,7 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateTradingStartLink(GenerateTradingStartLinkRequest request);
     public (string longLink, string shortLink) GenerateVerifyWithdrawalLink(GenerateVerifyWithdrawalLinkRequest request);
     public (string longLink, string shortLink) GenerateVerifyTransferLink(GenerateVerifyTransferLinkRequest request);
+    public (string longLink, string shortLink) GenerateEarnLandingLink(GenerateEarnLandingLinkRequest request);
+
 }
     

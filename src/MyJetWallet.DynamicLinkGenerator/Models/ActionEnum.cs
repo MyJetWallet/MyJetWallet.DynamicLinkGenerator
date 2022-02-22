@@ -14,5 +14,6 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         TradingStart,
         VerifyWithdrawal,
         VerifyTransfer,
+        EarnLanding,
     }
 }
