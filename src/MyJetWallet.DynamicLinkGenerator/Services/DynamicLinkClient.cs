@@ -124,7 +124,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
                 ? $"{linkBase}&{paramString}" 
                 : $"{linkBase}?{paramString}";
 
-            return ($"{parameters.DomainUriPrefix}/?link={HttpUtility.UrlEncode(deepLink)}&apn={parameters.AndroidPackageName}&ibi={parameters.IosBundleId}", deepLink);
+            return ($"{parameters.DomainUriPrefix}/?link={HttpUtility.UrlEncode(deepLink)}&apn={parameters.AndroidPackageName}&ibi={parameters.IosBundleId}&efr=1", deepLink);
         }
     }
 }
