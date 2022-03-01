@@ -46,13 +46,9 @@
               "target": "Package",
               "version": "[1.1.1, )"
             },
-            "MyNoSqlServer.DataReader": {
+            "MyJetWallet.Sdk.NoSql": {
               "target": "Package",
-              "version": "[1.4.4, )"
-            },
-            "MyNoSqlServer.DataWriter": {
-              "target": "Package",
-              "version": "[1.6.1, )"
+              "version": "[2.1.2, )"
             }
           },
           "imports": [
