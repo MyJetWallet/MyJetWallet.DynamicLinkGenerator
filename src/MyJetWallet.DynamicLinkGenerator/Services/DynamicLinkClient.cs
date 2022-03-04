@@ -83,14 +83,14 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateVerifyWithdrawalLink(GenerateVerifyWithdrawalLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_verify&jw_operation_id={request.OperationId}&jw_token={request.Token}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_withdrawal_verify&jw_operation_id={request.OperationId}&jw_code={request.Code}");
             return GenerateDeepLink(ActionEnum.VerifyWithdrawal, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         public (string longLink, string shortLink) GenerateVerifyTransferLink(GenerateVerifyTransferLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_verify&jw_operation_id={request.OperationId}&jw_token={request.Token}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=jw_transfer_verify&jw_operation_id={request.OperationId}&jw_code={request.Code}");
             return GenerateDeepLink(ActionEnum.VerifyTransfer, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
