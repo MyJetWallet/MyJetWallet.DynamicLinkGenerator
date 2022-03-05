@@ -33,7 +33,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateForgotPasswordLink(GenerateForgotPasswordLinkRequest request)
         {
             var deepLinkParameters = "";
-            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ForgotPassword&jw_token={request.Token}");
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ForgotPassword&jw_token={request.Token}&jw_code={request.Code}");
             return GenerateDeepLink(ActionEnum.ForgotPassword, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
