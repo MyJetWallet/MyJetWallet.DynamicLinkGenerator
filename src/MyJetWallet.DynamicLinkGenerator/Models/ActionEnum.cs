@@ -15,5 +15,7 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         VerifyWithdrawal,
         VerifyTransfer,
         EarnLanding,
+        KycSuccess,
+        KycFail
     }
 }
