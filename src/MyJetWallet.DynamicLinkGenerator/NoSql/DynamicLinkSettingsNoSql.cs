@@ -12,6 +12,8 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     public string DomainUriPrefix { get; set; }
     public string AndroidPackageName { get; set; }
     public string IosBundleId { get; set; }
+    public string IosStoreId { get; set; }
+
     public Dictionary<ActionEnum, BaseLinks> LinksMap { get; set; }
 
     public static DynamicLinkSettingsNoSql Create(string brand, string domainUriPrefix,string androidPackageName, string iosBundleId, Dictionary<ActionEnum, BaseLinks> linksMap )
