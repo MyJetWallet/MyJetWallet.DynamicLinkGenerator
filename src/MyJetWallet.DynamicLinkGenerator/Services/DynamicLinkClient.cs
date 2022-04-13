@@ -112,8 +112,16 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         {
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=KycFail&");
-            return GenerateDeepLink(ActionEnum.KycFail, request.DeviceType, request.Brand, deepLinkParameters);        }
+            return GenerateDeepLink(ActionEnum.KycFail, request.DeviceType, request.Brand, deepLinkParameters);
+        }
 
+        public (string longLink, string shortLink) GenerateRecurringBuyLink(GenerateRecurringBuyLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=RecurringBuyStart&");
+            return GenerateDeepLink(ActionEnum.RecurringBuyStart, request.DeviceType, request.Brand, deepLinkParameters);
+        }
+        
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
         {
             var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),

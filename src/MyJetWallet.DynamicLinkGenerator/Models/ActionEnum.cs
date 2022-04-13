@@ -16,6 +16,7 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         VerifyTransfer,
         EarnLanding,
         KycSuccess,
-        KycFail
+        KycFail,
+        RecurringBuyStart,
     }
 }
