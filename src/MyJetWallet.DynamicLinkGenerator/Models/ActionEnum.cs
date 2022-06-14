@@ -1,4 +1,4 @@
-namespace Service.DynamicLinkGenerator.Domain.Models.Enums
+namespace MyJetWallet.DynamicLinkGenerator.Models
 {
     public enum ActionEnum
     {
@@ -18,5 +18,6 @@ namespace Service.DynamicLinkGenerator.Domain.Models.Enums
         KycSuccess,
         KycFail,
         RecurringBuyStart,
+        ProfileDelete,
     }
 }

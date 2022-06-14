@@ -3,7 +3,6 @@ using System.Web;
 using MyJetWallet.DynamicLinkGenerator.Models;
 using MyJetWallet.DynamicLinkGenerator.NoSql;
 using MyNoSqlServer.Abstractions;
-using Service.DynamicLinkGenerator.Domain.Models.Enums;
 
 namespace MyJetWallet.DynamicLinkGenerator.Services
 {
@@ -120,6 +119,13 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, "jw_command=RecurringBuyStart&");
             return GenerateDeepLink(ActionEnum.RecurringBuyStart, request.DeviceType, request.Brand, deepLinkParameters);
+        }
+        
+        public (string longLink, string shortLink) GenerateProfileDeleteLink(GenerateDeleteProfileLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ProfileDeleteConfirm&jw_code={request.Code}");
+            return GenerateDeepLink(ActionEnum.ProfileDelete, request.DeviceType, request.Brand, deepLinkParameters);
         }
         
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)

@@ -19,6 +19,8 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateKycSuccessLink(GenerateKycSuccessLinkRequest request);
     public (string longLink, string shortLink) GenerateKycFailLink(GenerateKycFailLinkRequest request);
     public (string longLink, string shortLink) GenerateRecurringBuyLink(GenerateRecurringBuyLinkRequest request);
+    public (string longLink, string shortLink) GenerateProfileDeleteLink(GenerateDeleteProfileLinkRequest request);
+
 
 }
     

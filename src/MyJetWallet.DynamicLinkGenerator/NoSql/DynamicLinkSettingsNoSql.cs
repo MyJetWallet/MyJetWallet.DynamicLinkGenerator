@@ -1,6 +1,6 @@
 using System.Collections.Generic;
+using MyJetWallet.DynamicLinkGenerator.Models;
 using MyNoSqlServer.Abstractions;
-using Service.DynamicLinkGenerator.Domain.Models.Enums;
 
 namespace MyJetWallet.DynamicLinkGenerator.NoSql;
 
