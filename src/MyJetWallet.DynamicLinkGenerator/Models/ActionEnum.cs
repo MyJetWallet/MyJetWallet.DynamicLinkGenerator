@@ -19,5 +19,6 @@ namespace MyJetWallet.DynamicLinkGenerator.Models
         KycFail,
         RecurringBuyStart,
         ProfileDelete,
+        HighYield
     }
 }

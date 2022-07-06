@@ -127,7 +127,14 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=ProfileDeleteConfirm&jw_code={request.Code}");
             return GenerateDeepLink(ActionEnum.ProfileDelete, request.DeviceType, request.Brand, deepLinkParameters);
         }
-        
+
+        public (string longLink, string shortLink) GenerateHighYieldLink(GenerateHighYieldLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=HighYield&");
+            return GenerateDeepLink(ActionEnum.HighYield, request.DeviceType, request.Brand, deepLinkParameters);        
+        }
+
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
         {
             var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),
