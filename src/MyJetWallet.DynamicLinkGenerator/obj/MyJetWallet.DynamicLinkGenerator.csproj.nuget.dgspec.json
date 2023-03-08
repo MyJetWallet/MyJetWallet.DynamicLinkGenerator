@@ -44,7 +44,7 @@
             },
             "MyJetWallet.Domain": {
               "target": "Package",
-              "version": "[1.2.3, )"
+              "version": "[1.2.4, )"
             },
             "MyJetWallet.Sdk.NoSql": {
               "target": "Package",
