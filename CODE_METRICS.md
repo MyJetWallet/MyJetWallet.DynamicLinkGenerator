@@ -11,11 +11,52 @@ This file is dynamically maintained by a bot, *please do not* edit this by hand.
 
 The *MyJetWallet.DynamicLinkGenerator.csproj* project file contains:
 
-- 4 namespaces.
-- 24 named types.
-- 408 total lines of source code.
-- Approximately 65 lines of executable code.
+- 5 namespaces.
+- 26 named types.
+- 426 total lines of source code.
+- Approximately 69 lines of executable code.
 - The highest cyclomatic complexity is 4 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="service-pushnotification-domain-models-enums">
+    Service.PushNotification.Domain.Models.Enums :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+The `Service.PushNotification.Domain.Models.Enums` namespace contains 1 named types.
+
+- 1 named types.
+- 9 total lines of source code.
+- Approximately 3 lines of executable code.
+- The highest cyclomatic complexity is 0 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="jwaction">
+    JwAction :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `JwAction` contains 2 members.
+- 6 total lines of source code.
+- Approximately 3 lines of executable code.
+- The highest cyclomatic complexity is 0 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L9' title='JwAction.jw_operation_history'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L8' title='JwAction.None'>8</a> | 100 | 0 :heavy_check_mark: | 0 | 0 | 1 / 0 |
+
+<a href="#JwAction-class-diagram">:link: to `JwAction` class diagram</a>
+
+<a href="#service-pushnotification-domain-models-enums">:top: back to Service.PushNotification.Domain.Models.Enums</a>
+
+</details>
+
+</details>
 
 <details>
 <summary>
@@ -643,12 +684,35 @@ The `MyJetWallet.DynamicLinkGenerator.NoSql` namespace contains 2 named types.
 </summary>
 <br>
 
-The `MyJetWallet.DynamicLinkGenerator.Services` namespace contains 2 named types.
+The `MyJetWallet.DynamicLinkGenerator.Services` namespace contains 3 named types.
 
-- 2 named types.
-- 183 total lines of source code.
-- Approximately 58 lines of executable code.
+- 3 named types.
+- 192 total lines of source code.
+- Approximately 59 lines of executable code.
 - The highest cyclomatic complexity is 4 :heavy_check_mark:.
+
+<details>
+<summary>
+  <strong id="actionurlclient">
+    ActionUrlClient :heavy_check_mark:
+  </strong>
+</summary>
+<br>
+
+- The `ActionUrlClient` contains 1 members.
+- 7 total lines of source code.
+- Approximately 1 lines of executable code.
+- The highest cyclomatic complexity is 1 :heavy_check_mark:.
+
+| Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
+| :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L7' title='string ActionUrlClient.GenerateOperationHistoryUrl(string baseUrl, string operationId)'>7</a> | 93 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+
+<a href="#ActionUrlClient-class-diagram">:link: to `ActionUrlClient` class diagram</a>
+
+<a href="#myjetwallet-dynamiclinkgenerator-services">:top: back to MyJetWallet.DynamicLinkGenerator.Services</a>
+
+</details>
 
 <details>
 <summary>
@@ -799,6 +863,19 @@ The `TestApp` namespace contains 1 named types.
   - **Lines of executable code**: Approximates the lines of executable code. Lower values are better.
 
 ## Mermaid class diagrams
+
+<div id="JwAction-class-diagram"></div>
+
+##### `JwAction` class diagram
+
+```mermaid
+classDiagram
+class JwAction{
+    -None$
+    -jw_operation_history$
+}
+
+```
 
 <div id="AutofacHelper-class-diagram"></div>
 
@@ -1121,6 +1198,18 @@ class DynamicLinkSettingsNoSql{
     +GeneratePartitionKey()$ string
     +GenerateRowKey(string brand)$ string
     +Create(string brand, string domainUriPrefix, string androidPackageName, string iosBundleId, Dictionary<ActionEnum, BaseLinks> linksMap)$ DynamicLinkSettingsNoSql
+}
+
+```
+
+<div id="ActionUrlClient-class-diagram"></div>
+
+##### `ActionUrlClient` class diagram
+
+```mermaid
+classDiagram
+class ActionUrlClient{
+    +GenerateOperationHistoryUrl(string baseUrl, string operationId)$ string
 }
 
 ```
