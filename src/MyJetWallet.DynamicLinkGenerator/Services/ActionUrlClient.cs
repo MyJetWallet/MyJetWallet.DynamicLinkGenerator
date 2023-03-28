@@ -23,5 +23,10 @@ public static class ActionUrlClient
     {
         return $"{baseUrl}action/{JwAction.jw_kyc_banned}";
     }
+    
+    public static string GenerateCryptoWithdrawalDeclineUrl(string baseUrl, string asset)
+    {
+        return $"{baseUrl}action/{JwAction.jwt_crypto_withdrawal_decline}/asset/{asset}";
+    }
 
 }
