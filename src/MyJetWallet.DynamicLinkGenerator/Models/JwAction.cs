@@ -10,6 +10,6 @@ namespace Service.PushNotification.Domain.Models.Enums
        jw_kyc_documents_approved = 10,
        jw_kyc_documents_declined = 11,
        jw_kyc_banned = 12,
-       jwt_crypto_withdrawal_decline = 13,
+       jw_crypto_withdrawal_decline = 13,
     }
 }

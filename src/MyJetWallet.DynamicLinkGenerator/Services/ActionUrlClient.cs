@@ -26,7 +26,7 @@ public static class ActionUrlClient
     
     public static string GenerateCryptoWithdrawalDeclineUrl(string baseUrl, string asset)
     {
-        return $"{baseUrl}action/{JwAction.jwt_crypto_withdrawal_decline}/asset/{asset}";
+        return $"{baseUrl}action/{JwAction.jw_crypto_withdrawal_decline}/jw_asset/{asset}";
     }
 
 }
