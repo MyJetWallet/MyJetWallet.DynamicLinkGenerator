@@ -13,8 +13,8 @@ The *MyJetWallet.DynamicLinkGenerator.csproj* project file contains:
 
 - 5 namespaces.
 - 26 named types.
-- 426 total lines of source code.
-- Approximately 69 lines of executable code.
+- 451 total lines of source code.
+- Approximately 74 lines of executable code.
 - The highest cyclomatic complexity is 4 :heavy_check_mark:.
 
 <details>
@@ -28,8 +28,8 @@ The *MyJetWallet.DynamicLinkGenerator.csproj* project file contains:
 The `Service.PushNotification.Domain.Models.Enums` namespace contains 1 named types.
 
 - 1 named types.
-- 9 total lines of source code.
-- Approximately 3 lines of executable code.
+- 13 total lines of source code.
+- Approximately 4 lines of executable code.
 - The highest cyclomatic complexity is 0 :heavy_check_mark:.
 
 <details>
@@ -40,14 +40,18 @@ The `Service.PushNotification.Domain.Models.Enums` namespace contains 1 named ty
 </summary>
 <br>
 
-- The `JwAction` contains 2 members.
-- 6 total lines of source code.
-- Approximately 3 lines of executable code.
+- The `JwAction` contains 6 members.
+- 10 total lines of source code.
+- Approximately 4 lines of executable code.
 - The highest cyclomatic complexity is 0 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L12' title='JwAction.jw_kyc_banned'>12</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L10' title='JwAction.jw_kyc_documents_approved'>10</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L11' title='JwAction.jw_kyc_documents_declined'>11</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L9' title='JwAction.jw_operation_history'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L13' title='JwAction.jwt_crypto_withdrawal_decline'>13</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L8' title='JwAction.None'>8</a> | 100 | 0 :heavy_check_mark: | 0 | 0 | 1 / 0 |
 
 <a href="#JwAction-class-diagram">:link: to `JwAction` class diagram</a>
@@ -687,8 +691,8 @@ The `MyJetWallet.DynamicLinkGenerator.NoSql` namespace contains 2 named types.
 The `MyJetWallet.DynamicLinkGenerator.Services` namespace contains 3 named types.
 
 - 3 named types.
-- 192 total lines of source code.
-- Approximately 59 lines of executable code.
+- 213 total lines of source code.
+- Approximately 63 lines of executable code.
 - The highest cyclomatic complexity is 4 :heavy_check_mark:.
 
 <details>
@@ -699,13 +703,17 @@ The `MyJetWallet.DynamicLinkGenerator.Services` namespace contains 3 named types
 </summary>
 <br>
 
-- The `ActionUrlClient` contains 1 members.
-- 7 total lines of source code.
-- Approximately 1 lines of executable code.
+- The `ActionUrlClient` contains 5 members.
+- 28 total lines of source code.
+- Approximately 5 lines of executable code.
 - The highest cyclomatic complexity is 1 :heavy_check_mark:.
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L27' title='string ActionUrlClient.GenerateCryptoWithdrawalDeclineUrl(string baseUrl, string asset)'>27</a> | 93 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L22' title='string ActionUrlClient.GenerateKycBannedUrl(string baseUrl)'>22</a> | 95 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L12' title='string ActionUrlClient.GenerateKycDocumentsApprovedUrl(string baseUrl)'>12</a> | 95 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
+| Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L17' title='string ActionUrlClient.GenerateKycDocumentsDeclinedUrl(string baseUrl)'>17</a> | 95 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
 | Method | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Services/ActionUrlClient.cs#L7' title='string ActionUrlClient.GenerateOperationHistoryUrl(string baseUrl, string operationId)'>7</a> | 93 | 1 :heavy_check_mark: | 0 | 1 | 4 / 1 |
 
 <a href="#ActionUrlClient-class-diagram">:link: to `ActionUrlClient` class diagram</a>
@@ -873,6 +881,10 @@ classDiagram
 class JwAction{
     -None$
     -jw_operation_history$
+    -jw_kyc_documents_approved$
+    -jw_kyc_documents_declined$
+    -jw_kyc_banned$
+    -jwt_crypto_withdrawal_decline$
 }
 
 ```
@@ -1210,6 +1222,10 @@ class DynamicLinkSettingsNoSql{
 classDiagram
 class ActionUrlClient{
     +GenerateOperationHistoryUrl(string baseUrl, string operationId)$ string
+    +GenerateKycDocumentsApprovedUrl(string baseUrl)$ string
+    +GenerateKycDocumentsDeclinedUrl(string baseUrl)$ string
+    +GenerateKycBannedUrl(string baseUrl)$ string
+    +GenerateCryptoWithdrawalDeclineUrl(string baseUrl, string asset)$ string
 }
 
 ```
