@@ -47,11 +47,11 @@ The `Service.PushNotification.Domain.Models.Enums` namespace contains 1 named ty
 
 | Member kind | Line number | Maintainability index | Cyclomatic complexity | Depth of inheritance | Class coupling | Lines of source / executable code |
 | :-: | :-: | :-: | :-: | :-: | :-: | :-: |
+| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L13' title='JwAction.jw_crypto_withdrawal_decline'>13</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L12' title='JwAction.jw_kyc_banned'>12</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L10' title='JwAction.jw_kyc_documents_approved'>10</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L11' title='JwAction.jw_kyc_documents_declined'>11</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L9' title='JwAction.jw_operation_history'>9</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
-| Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L13' title='JwAction.jwt_crypto_withdrawal_decline'>13</a> | 93 | 0 :heavy_check_mark: | 0 | 0 | 1 / 1 |
 | Field | <a href='https://github.com/MyJetWallet/MyJetWallet.DynamicLinkGenerator/blob/master/src/MyJetWallet.DynamicLinkGenerator/Models/JwAction.cs#L8' title='JwAction.None'>8</a> | 100 | 0 :heavy_check_mark: | 0 | 0 | 1 / 0 |
 
 <a href="#JwAction-class-diagram">:link: to `JwAction` class diagram</a>
@@ -884,7 +884,7 @@ class JwAction{
     -jw_kyc_documents_approved$
     -jw_kyc_documents_declined$
     -jw_kyc_banned$
-    -jwt_crypto_withdrawal_decline$
+    -jw_crypto_withdrawal_decline$
 }
 
 ```
