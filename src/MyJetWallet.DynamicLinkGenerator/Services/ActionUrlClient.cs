@@ -1,4 +1,4 @@
-using Service.PushNotification.Domain.Models.Enums;
+using MyJetWallet.DynamicLinkGenerator.Models;
 
 namespace MyJetWallet.DynamicLinkGenerator.Services;
 
@@ -6,27 +6,27 @@ public static class ActionUrlClient
 {
     public static string GenerateOperationHistoryUrl(string baseUrl, string operationId)
     {
-        return $"{baseUrl}action/{JwAction.jw_operation_history}/jw_operation_id/{operationId}";
+        return $"{baseUrl}action/{ActionEnum.OperationHistory.GetString()}/jw_operation_id/{operationId}";
     }
     
     public static string GenerateKycDocumentsApprovedUrl(string baseUrl)
     {
-        return $"{baseUrl}action/{JwAction.jw_kyc_documents_approved}";
+        return $"{baseUrl}action/{ActionEnum.KycDocumentsApproved.GetString()}";
     }
 
     public static string GenerateKycDocumentsDeclinedUrl(string baseUrl)
     {
-        return $"{baseUrl}action/{JwAction.jw_kyc_documents_declined}";
+        return $"{baseUrl}action/{ActionEnum.KycDocumentsDeclined.GetString()}";
     }
 
     public static string GenerateKycBannedUrl(string baseUrl)
     {
-        return $"{baseUrl}action/{JwAction.jw_kyc_banned}";
+        return $"{baseUrl}action/{ActionEnum.KycBanned.GetString()}";
     }
     
     public static string GenerateCryptoWithdrawalDeclineUrl(string baseUrl, string asset)
     {
-        return $"{baseUrl}action/{JwAction.jw_crypto_withdrawal_decline}/jw_asset/{asset}";
+        return $"{baseUrl}action/{ActionEnum.WithdrawalDecline.GetString()}/jw_asset/{asset}";
     }
 
 }

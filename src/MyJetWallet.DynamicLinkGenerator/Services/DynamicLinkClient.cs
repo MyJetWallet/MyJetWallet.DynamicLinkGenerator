@@ -1,5 +1,6 @@
 using System;
 using System.Web;
+using Microsoft.Extensions.Logging;
 using MyJetWallet.DynamicLinkGenerator.Models;
 using MyJetWallet.DynamicLinkGenerator.NoSql;
 using MyNoSqlServer.Abstractions;
@@ -9,10 +10,12 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
     public class DynamicLinkClient : IDynamicLinkClient
     {
         private readonly IMyNoSqlServerDataReader<DynamicLinkSettingsNoSql> _reader;
+        private readonly ILogger<DynamicLinkClient> _logger;
 
-        public DynamicLinkClient(IMyNoSqlServerDataReader<DynamicLinkSettingsNoSql> reader)
+        public DynamicLinkClient(IMyNoSqlServerDataReader<DynamicLinkSettingsNoSql> reader, ILogger<DynamicLinkClient> logger)
         {
             _reader = reader;
+            _logger = logger;
         }
 
         public (string longLink, string shortLink) GenerateLoginLink(GenerateLoginLinkRequest request)
@@ -133,6 +136,27 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             var deepLinkParameters = "";
             deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command=HighYield&");
             return GenerateDeepLink(ActionEnum.HighYield, request.DeviceType, request.Brand, deepLinkParameters);        
+        }
+
+        public (string longLink, string shortLink) GenerateSupportLink(GenerateSupportLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command={ActionEnum.SupportPage.GetString()}&");
+            return GenerateDeepLink(ActionEnum.SupportPage, request.DeviceType, request.Brand, deepLinkParameters);        
+        }
+
+        public (string longLink, string shortLink) GenerateDepositSuccessLink(GenerateDepositSuccessLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command={ActionEnum.DepositSuccess.GetString()}&jw_operation_id={request.OperationId}");
+            return GenerateDeepLink(ActionEnum.DepositSuccess, request.DeviceType, request.Brand, deepLinkParameters);
+        }
+
+        public (string longLink, string shortLink) GenerateKycDocumentsDeclinedLink(GenerateKycDocsDeclinedLinkRequest request)
+        {
+            var deepLinkParameters = "";
+            deepLinkParameters = string.Concat(deepLinkParameters, $"jw_command={ActionEnum.KycDocumentsDeclined.GetString()}&");
+            return GenerateDeepLink(ActionEnum.KycDocumentsDeclined, request.DeviceType, request.Brand, deepLinkParameters);
         }
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, DeviceTypeEnum device, string brand, string paramString)
