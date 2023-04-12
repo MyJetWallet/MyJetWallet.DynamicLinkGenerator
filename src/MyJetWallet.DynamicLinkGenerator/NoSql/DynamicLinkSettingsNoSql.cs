@@ -13,17 +13,16 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     public string AndroidPackageName { get; set; }
     public string IosBundleId { get; set; }
     public string IosStoreId { get; set; }
+    public List<BaseLinks> Links { get; set; }
 
-    public Dictionary<ActionEnum, BaseLinks> LinksMap { get; set; }
-
-    public static DynamicLinkSettingsNoSql Create(string brand, string domainUriPrefix,string androidPackageName, string iosBundleId, Dictionary<ActionEnum, BaseLinks> linksMap )
+    public static DynamicLinkSettingsNoSql Create(string brand, string domainUriPrefix,string androidPackageName, string iosBundleId, List<BaseLinks> links )
     {
         return new DynamicLinkSettingsNoSql()
         {
             PartitionKey = GeneratePartitionKey(),
             RowKey = GenerateRowKey(brand),
             DomainUriPrefix = domainUriPrefix,
-            LinksMap = linksMap,
+            Links = links,
             AndroidPackageName = androidPackageName,
             IosBundleId = iosBundleId
         };
@@ -31,6 +30,7 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     
     public class BaseLinks
     {
+        public ActionEnum Action { get; set; }
         public string BaseLinkDefault { get; set; }
         public string BaseLinkIos { get; set; }
         public string BaseLinkAndroid { get; set; }

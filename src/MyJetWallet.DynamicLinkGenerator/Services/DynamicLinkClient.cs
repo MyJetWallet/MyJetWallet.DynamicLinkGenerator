@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using System.Web;
 using Microsoft.Extensions.Logging;
 using MyJetWallet.DynamicLinkGenerator.Models;
@@ -167,7 +168,8 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             if (parameters == null)
                 throw new ArgumentException($"Unable to get link parameters for brand {brand}");
 
-            if (!parameters.LinksMap.TryGetValue(action, out var baseLinks))
+            var baseLinks = parameters.Links?.FirstOrDefault(t => t.Action == action);
+            if (baseLinks == null)
                 throw new Exception($"Unable to find links for this action: {action}");
             
             var linkBase = device switch
