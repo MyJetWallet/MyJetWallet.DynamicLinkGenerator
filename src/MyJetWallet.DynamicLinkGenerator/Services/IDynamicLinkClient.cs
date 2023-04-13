@@ -24,5 +24,9 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateSupportLink(SupportLinkRequest request);
     public (string longLink, string shortLink) GenerateDepositSuccessLink(DepositSuccessLinkRequest request);
     public (string longLink, string shortLink) GenerateKycDocumentsDeclinedLink(KycDocsDeclinedLinkRequest request);
-}
+    public (string longLink, string shortLink) GenerateKycDocumentsApprovedLink(KycDocsApprovedLinkRequest request);
+    public (string longLink, string shortLink) GenerateKycBannedLink(KycBannedLinkRequest request);
+    public (string longLink, string shortLink) GenerateOperationHistoryLink(OperationHistoryLinkRequest request);
+    public (string longLink, string shortLink) GenerateWithdrawalDeclinedLink(WithdrawalDeclinedLinkRequest request);
     
+}
