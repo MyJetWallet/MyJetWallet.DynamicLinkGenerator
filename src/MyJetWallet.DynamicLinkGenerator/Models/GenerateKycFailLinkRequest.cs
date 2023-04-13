@@ -1,8 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class GenerateKycFailLinkRequest
+    public class KycFailLinkRequest
     {
         public string Brand { get; set; }
-        public DeviceTypeEnum DeviceType { get; set; }
     }
 }

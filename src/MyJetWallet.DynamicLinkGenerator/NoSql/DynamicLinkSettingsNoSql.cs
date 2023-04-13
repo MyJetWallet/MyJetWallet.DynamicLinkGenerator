@@ -1,5 +1,4 @@
 using System.Collections.Generic;
-using MyJetWallet.DynamicLinkGenerator.Models;
 using MyNoSqlServer.Abstractions;
 
 namespace MyJetWallet.DynamicLinkGenerator.NoSql;
@@ -13,26 +12,18 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     public string AndroidPackageName { get; set; }
     public string IosBundleId { get; set; }
     public string IosStoreId { get; set; }
-    public List<BaseLinks> Links { get; set; }
+    public string BaseLink { get; set; }
 
-    public static DynamicLinkSettingsNoSql Create(string brand, string domainUriPrefix,string androidPackageName, string iosBundleId, List<BaseLinks> links )
+    public static DynamicLinkSettingsNoSql GenerateCreate(string brand, string domainUriPrefix,string androidPackageName, string iosBundleId, string baseLink )
     {
         return new DynamicLinkSettingsNoSql()
         {
             PartitionKey = GeneratePartitionKey(),
             RowKey = GenerateRowKey(brand),
             DomainUriPrefix = domainUriPrefix,
-            Links = links,
+            BaseLink = baseLink,
             AndroidPackageName = androidPackageName,
             IosBundleId = iosBundleId
         };
-    }
-    
-    public class BaseLinks
-    {
-        public ActionEnum Action { get; set; }
-        public string BaseLinkDefault { get; set; }
-        public string BaseLinkIos { get; set; }
-        public string BaseLinkAndroid { get; set; }
     }
 }

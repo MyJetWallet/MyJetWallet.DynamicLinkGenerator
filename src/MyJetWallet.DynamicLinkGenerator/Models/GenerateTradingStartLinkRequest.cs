@@ -1,8 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class GenerateTradingStartLinkRequest
+    public class TradingStartLinkRequest
     {
         public string Brand { get; set; }
-        public DeviceTypeEnum DeviceType { get; set; }
     }
 }

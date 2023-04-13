@@ -1,8 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class GenerateRecurringBuyLinkRequest
+    public class RecurringBuyLinkRequest
     {
         public string Brand { get; set; }
-        public DeviceTypeEnum DeviceType { get; set; }
     }
 }
