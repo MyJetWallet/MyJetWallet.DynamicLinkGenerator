@@ -28,5 +28,8 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateKycBannedLink(KycBannedLinkRequest request);
     public (string longLink, string shortLink) GenerateOperationHistoryLink(OperationHistoryLinkRequest request);
     public (string longLink, string shortLink) GenerateWithdrawalDeclinedLink(WithdrawalDeclinedLinkRequest request);
-    
+    public (string longLink, string shortLink) GenerateGiftIncomingLink(OperationLinkRequest request);
+    public (string longLink, string shortLink) GenerateGiftReminderLink(OperationLinkRequest request);
+    public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request);
+
 }

@@ -40,6 +40,9 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateKycBannedLink(KycBannedLinkRequest request) => GenerateDeepLink(ActionEnum.KycBanned, request.Brand);
         public (string longLink, string shortLink) GenerateOperationHistoryLink(OperationHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.OperationHistory, request.Brand, ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateWithdrawalDeclinedLink(WithdrawalDeclinedLinkRequest request) => GenerateDeepLink(ActionEnum.WithdrawalDecline, request.Brand, ("jw_asset", request.Asset));
+        public (string longLink, string shortLink) GenerateGiftIncomingLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftIncoming, request.Brand, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateGiftReminderLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftReminder, request.Brand, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftCancelled, request.Brand, ("jw_operation_id", request.OperationId));
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, string brand, params(string, string)[] paramsArray)
         {

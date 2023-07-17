@@ -29,6 +29,9 @@ public enum ActionEnum
     WithdrawalDecline, //jw_crypto_withdrawal_decline = 13,
     DepositSuccess, 
     SupportPage,
+    GiftIncoming,
+    GiftReminder,
+    GiftCancelled
 }
 
 public static class ActionExtensions
@@ -60,6 +63,9 @@ public static class ActionExtensions
             ActionEnum.WithdrawalDecline => "jw_crypto_withdrawal_decline",
             ActionEnum.DepositSuccess => "jw_deposit_successful",
             ActionEnum.SupportPage => "jw_support_page",
+            ActionEnum.GiftIncoming => "jw_gift_incoming",
+            ActionEnum.GiftReminder => "jw_gift_remind",
+            ActionEnum.GiftCancelled => "jw_gift_cancelled",
             ActionEnum.None => string.Empty,
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
