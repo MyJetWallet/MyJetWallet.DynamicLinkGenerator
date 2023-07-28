@@ -31,5 +31,5 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateGiftIncomingLink(OperationLinkRequest request);
     public (string longLink, string shortLink) GenerateGiftReminderLink(OperationLinkRequest request);
     public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request);
-
+    public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request);
 }

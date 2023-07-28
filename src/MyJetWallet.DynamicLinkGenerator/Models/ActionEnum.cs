@@ -31,7 +31,8 @@ public enum ActionEnum
     SupportPage,
     GiftIncoming,
     GiftReminder,
-    GiftCancelled
+    GiftCancelled,
+    GiftExpired
 }
 
 public static class ActionExtensions
@@ -66,6 +67,7 @@ public static class ActionExtensions
             ActionEnum.GiftIncoming => "jw_gift_incoming",
             ActionEnum.GiftReminder => "jw_gift_remind",
             ActionEnum.GiftCancelled => "jw_gift_cancelled",
+            ActionEnum.GiftExpired => "jw_gift_expired",
             ActionEnum.None => string.Empty,
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
