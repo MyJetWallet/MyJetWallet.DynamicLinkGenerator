@@ -41,7 +41,7 @@
           "dependencies": {
             "Autofac": {
               "target": "Package",
-              "version": "[7.0.1, )"
+              "version": "[7.1.0, )"
             },
             "MyJetWallet.Domain": {
               "target": "Package",
