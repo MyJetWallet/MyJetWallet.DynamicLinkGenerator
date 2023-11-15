@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/monfex/actions-runner/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {}
+    "/home/monfex/actions-runner2/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {}
   },
   "projects": {
-    "/home/monfex/actions-runner/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {
+    "/home/monfex/actions-runner2/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/monfex/actions-runner/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
+        "projectUniqueName": "/home/monfex/actions-runner2/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
         "projectName": "MyJetWallet.DynamicLinkGenerator",
-        "projectPath": "/home/monfex/actions-runner/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
+        "projectPath": "/home/monfex/actions-runner2/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator.csproj",
         "packagesPath": "/root/.nuget/packages/",
-        "outputPath": "/home/monfex/actions-runner/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/obj/",
+        "outputPath": "/home/monfex/actions-runner2/_work/MyJetWallet.DynamicLinkGenerator/MyJetWallet.DynamicLinkGenerator/src/MyJetWallet.DynamicLinkGenerator/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/root/.nuget/NuGet/NuGet.Config"
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/monfex/sdk/7.0.403/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/monfex/sdk/7.0.404/RuntimeIdentifierGraph.json"
         }
       }
     }
