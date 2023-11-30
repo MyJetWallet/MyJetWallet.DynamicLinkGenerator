@@ -62,13 +62,18 @@ public static class ActionExtensions
             ActionEnum.KycDocumentsDeclined => "jw_kyc_documents_declined",
             ActionEnum.KycBanned => "jw_kyc_banned",
             ActionEnum.WithdrawalDecline => "jw_crypto_withdrawal_decline",
-            ActionEnum.DepositSuccess => "jw_deposit_successful",
+            //ActionEnum.DepositSuccess => "jw_deposit_successful",
             ActionEnum.SupportPage => "jw_support_page",
-            ActionEnum.GiftIncoming => "jw_gift_incoming",
-            ActionEnum.GiftReminder => "jw_gift_remind",
-            ActionEnum.GiftCancelled => "jw_gift_cancelled",
-            ActionEnum.GiftExpired => "jw_gift_expired",
+            // ActionEnum.GiftIncoming => "jw_gift_incoming",
+            // ActionEnum.GiftReminder => "jw_gift_remind",
+            // ActionEnum.GiftCancelled => "jw_gift_cancelled",
+            // ActionEnum.GiftExpired => "jw_gift_expired",
             ActionEnum.None => string.Empty,
+            ActionEnum.DepositSuccess => "jw_operation_history",
+            ActionEnum.GiftIncoming => "jw_operation_history",
+            ActionEnum.GiftReminder => "jw_operation_history",
+            ActionEnum.GiftCancelled => "jw_operation_history",
+            ActionEnum.GiftExpired => "jw_operation_history",
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }
