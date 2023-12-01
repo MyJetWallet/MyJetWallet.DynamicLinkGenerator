@@ -17,14 +17,14 @@
           "/root/.nuget/NuGet/NuGet.Config"
         ],
         "originalTargetFrameworks": [
-          "net7.0"
+          "net8.0"
         ],
         "sources": {
           "https://api.nuget.org/v3/index.json": {}
         },
         "frameworks": {
-          "net7.0": {
-            "targetAlias": "net7.0",
+          "net8.0": {
+            "targetAlias": "net8.0",
             "projectReferences": {}
           }
         },
@@ -35,8 +35,8 @@
         }
       },
       "frameworks": {
-        "net7.0": {
-          "targetAlias": "net7.0",
+        "net8.0": {
+          "targetAlias": "net8.0",
           "dependencies": {
             "Autofac": {
               "target": "Package",
@@ -48,7 +48,7 @@
             },
             "MyJetWallet.Sdk.NoSql": {
               "target": "Package",
-              "version": "[2.3.0, )"
+              "version": "[2.4.0, )"
             }
           },
           "imports": [
@@ -67,7 +67,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "/home/monfex/sdk/7.0.404/RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "/home/monfex/sdk/8.0.100/PortableRuntimeIdentifierGraph.json"
         }
       }
     }
