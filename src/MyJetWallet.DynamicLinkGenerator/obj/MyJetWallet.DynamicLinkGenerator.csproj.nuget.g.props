@@ -13,6 +13,6 @@
     <SourceRoot Include="/root/.nuget/packages/" />
   </ItemGroup>
   <PropertyGroup Condition=" '$(ExcludeRestorePackageImports)' != 'true' ">
-    <PkgGrpc_Tools Condition=" '$(PkgGrpc_Tools)' == '' ">/root/.nuget/packages/grpc.tools/2.60.0</PkgGrpc_Tools>
+    <PkgGrpc_Tools Condition=" '$(PkgGrpc_Tools)' == '' ">/root/.nuget/packages/grpc.tools/2.63.0</PkgGrpc_Tools>
   </PropertyGroup>
 </Project>
