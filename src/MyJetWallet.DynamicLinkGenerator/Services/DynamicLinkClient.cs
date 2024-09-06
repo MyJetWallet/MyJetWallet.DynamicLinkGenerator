@@ -53,11 +53,13 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             if (parameters == null)
                 throw new ArgumentException($"Unable to get link parameters for brand {brand}");
             
-            var deepLink = $"{parameters.BaseLink}/action/{action.GetString()}";
+            var deepLink = $"action/{action.GetString()}";
             foreach (var (name, value) in paramsArray) 
                 deepLink = $"{deepLink}/{name}/{value}";
             
-            return ($"{parameters.DomainUriPrefix}/?link={HttpUtility.UrlEncode(deepLink)}&apn={parameters.AndroidPackageName}&ibi={parameters.IosBundleId}&isi={parameters.IosStoreId}&efr=1", deepLink);
+            var link = $"{parameters.BaseLink}?af_xp={parameters.AfXp}&pid={parameters.Pid}&c={parameters.C}&deep_link_value={deepLink}";
+
+            return (link, link);
         }
     }
 }
