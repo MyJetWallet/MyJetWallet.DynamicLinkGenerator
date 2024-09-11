@@ -32,7 +32,8 @@ public enum ActionEnum
     GiftIncoming,
     GiftReminder,
     GiftCancelled,
-    GiftExpired
+    GiftExpired,
+    Jar
 }
 
 public static class ActionExtensions
@@ -74,6 +75,7 @@ public static class ActionExtensions
             ActionEnum.GiftReminder => "jw_operation_history",
             ActionEnum.GiftCancelled => "jw_operation_history",
             ActionEnum.GiftExpired => "jw_operation_history",
+            ActionEnum.Jar => "jar",
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }
