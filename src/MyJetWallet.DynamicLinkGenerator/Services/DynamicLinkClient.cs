@@ -60,7 +60,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             
             var link = $"{parameters.BaseLink}?af_xp={parameters.AfXp}&pid={parameters.Pid}&c={parameters.C}&deep_link_value={deepLink}";
 
-            return (link, link);
+            return (link, deepLink);
         }
     }
 }
