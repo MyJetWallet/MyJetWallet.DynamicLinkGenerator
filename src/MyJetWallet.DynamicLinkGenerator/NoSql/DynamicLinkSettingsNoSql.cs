@@ -9,8 +9,7 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     public const string TableName = "myjetwallet-dynlink-settings-v2";
     public static string GeneratePartitionKey() => "DynLinkSettings";
     public static string GenerateRowKey(string brand) => brand;
-    
-    [Obsolete] public string DomainUriPrefix { get; set; }
+    public string DomainUriPrefix { get; set; }
     [Obsolete] public string AndroidPackageName { get; set; }
     [Obsolete] public string IosBundleId { get; set; }
     [Obsolete] public string IosStoreId { get; set; }
@@ -19,8 +18,7 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
     public string C { get; set; }
     public string AfXp { get; set; }
 
-    public static DynamicLinkSettingsNoSql GenerateCreate(string brand, string baseLink, string pid, string c, string afXp)
-    {
+    public static DynamicLinkSettingsNoSql GenerateCreate(string brand, string baseLink, string pid, string c, string afXp, string domainUriPrefix){
         return new DynamicLinkSettingsNoSql()
         {
             PartitionKey = GeneratePartitionKey(),
@@ -29,6 +27,7 @@ public class DynamicLinkSettingsNoSql : MyNoSqlDbEntity
             Pid = pid,
             C = c,
             AfXp = afXp,
+            DomainUriPrefix = domainUriPrefix
         };
     }
 }
