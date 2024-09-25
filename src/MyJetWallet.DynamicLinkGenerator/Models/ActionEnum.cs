@@ -33,7 +33,8 @@ public enum ActionEnum
     GiftReminder,
     GiftCancelled,
     GiftExpired,
-    Jar
+    Jar,
+    MarketsScreen
 }
 
 public static class ActionExtensions
@@ -76,6 +77,7 @@ public static class ActionExtensions
             ActionEnum.GiftCancelled => "jw_operation_history",
             ActionEnum.GiftExpired => "jw_operation_history",
             ActionEnum.Jar => "jar",
+            ActionEnum.MarketsScreen => "MarketsScreen",
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }
