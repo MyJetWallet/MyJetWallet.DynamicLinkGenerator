@@ -1,7 +1,12 @@
+using System;
+
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
 public class MarketsScreenRequest
 {
     public string Brand { get; set; }
-    public string Asset { get; set; }
+    public string FromAsset { get; set; }
+    public string ToAsset { get; set; }
+    public string Amount { get; set; }
+    public bool BuyFixed { get; set; }
 }

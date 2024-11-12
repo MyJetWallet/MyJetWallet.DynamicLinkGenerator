@@ -45,7 +45,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftCancelled, request.Brand, ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftExpired, request.Brand, ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request) => GenerateDeepLink(ActionEnum.Jar, request.Brand, ("jw_jar_id", request.JarId));
-        public (string longLink, string shortLink) GenerateMarketsScreenLink(MarketsScreenRequest request) => GenerateDeepLink(ActionEnum.MarketsScreen, request.Brand, ("jw_symbol", request.Asset));
+        public (string longLink, string shortLink) GenerateMarketsScreenLink(MarketsScreenRequest request) => GenerateDeepLink(ActionEnum.MarketsScreen, request.Brand, ("jw_fromAsset", request.FromAsset), ("jw_toAsset", request.ToAsset), ("jw_amount", request.Amount), ("jw_side", request.BuyFixed ? "buy" : "sell"));
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, string brand, params(string, string)[] paramsArray)
         {
