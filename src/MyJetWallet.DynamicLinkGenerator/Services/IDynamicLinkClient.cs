@@ -33,5 +33,5 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request);
     public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request);
     public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request);
-    public (string longLink, string shortLink) GenerateMarketsScreenLink(MarketsScreenRequest request);
+    public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request);
 }

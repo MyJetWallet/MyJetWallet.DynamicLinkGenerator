@@ -2,7 +2,7 @@ using System;
 
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class MarketsScreenRequest
+public class UnfinishedOpRequest
 {
     public string Brand { get; set; }
     public string FromAsset { get; set; }
