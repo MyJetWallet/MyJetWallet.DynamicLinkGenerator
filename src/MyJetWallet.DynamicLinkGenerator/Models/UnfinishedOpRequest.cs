@@ -12,4 +12,7 @@ public class UnfinishedOpRequest
     public string Operation { get; set; }
     public string CardId { get; set; }
     public string ReceiveMethodId { get; set; }
+    public string AccountId { get; set; }
+    public string ToIban { get; set; }
+    public string IbanBankCode { get; set; }
 }

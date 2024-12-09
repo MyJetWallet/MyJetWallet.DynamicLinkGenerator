@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using MyJetWallet.DynamicLinkGenerator.Models;
@@ -45,16 +46,33 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftCancelled, request.Brand, ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftExpired, request.Brand, ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request) => GenerateDeepLink(ActionEnum.Jar, request.Brand, ("jw_jar_id", request.JarId));
-        public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request) => GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand,
-            ("jw_fromAsset", request.FromAsset),
-            ("jw_toAsset", request.ToAsset),
-            ("jw_fromAmount", request.FromAmount),
-            ("jw_toAmount", request.ToAmount),
-            ("jw_amount", request.Amount),
-            ("jw_side", request.BuyFixed ? "buy" : "sell"),
-            ("jw_operation ", request.Operation),
-            ("jw_cardId", request.CardId),
-            ("jw_receiveMethodId", request.ReceiveMethodId));
+
+        public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request)
+        {
+            var parameters = new List<(string, string)>();
+            AddParamIfNotEmpty("jw_fromAsset", request.FromAsset);
+            AddParamIfNotEmpty("jw_toAsset", request.ToAsset);
+            AddParamIfNotEmpty("jw_fromAmount", request.FromAmount);
+            AddParamIfNotEmpty("jw_toAmount", request.ToAmount);
+            AddParamIfNotEmpty("jw_amount", request.Amount);
+            AddParamIfNotEmpty("jw_side", request.BuyFixed ? "buy" : "sell");
+            AddParamIfNotEmpty("jw_operation ", request.Operation);
+            AddParamIfNotEmpty("jw_cardId", request.CardId);
+            AddParamIfNotEmpty("jw_receiveMethodId", request.ReceiveMethodId);
+            AddParamIfNotEmpty("jw_accountID", request.AccountId);
+            AddParamIfNotEmpty("jw_toIban", request.ToIban);
+            AddParamIfNotEmpty("jw_ibanBankCode", request.IbanBankCode);
+
+            return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, parameters.ToArray());
+
+            void AddParamIfNotEmpty(string key, string value)
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    parameters.Add((key,value));
+                }
+            }
+        }
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, string brand, params(string, string)[] paramsArray)
         {
