@@ -15,4 +15,5 @@ public class UnfinishedOpRequest
     public string AccountId { get; set; }
     public string ToIban { get; set; }
     public string IbanBankCode { get; set; }
+    public bool? IsFromFixed { get; set; }
 }
