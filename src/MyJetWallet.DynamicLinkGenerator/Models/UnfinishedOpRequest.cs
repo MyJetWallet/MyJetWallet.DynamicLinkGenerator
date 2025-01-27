@@ -8,7 +8,7 @@ public class UnfinishedOpRequest
     public string FromAmount { get; set; }
     public string ToAmount { get; set; }
     public string Amount { get; set; }
-    public bool BuyFixed { get; set; }
+    public string Side { get; set; }
     public string Operation { get; set; }
     public string CardId { get; set; }
     public string ReceiveMethodId { get; set; }

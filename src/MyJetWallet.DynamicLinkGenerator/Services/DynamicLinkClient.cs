@@ -54,7 +54,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             AddParamIfNotEmpty("jw_fromAmount", request.FromAmount);
             AddParamIfNotEmpty("jw_toAmount", request.ToAmount);
             AddParamIfNotEmpty("jw_amount", request.Amount);
-            AddParamIfNotEmpty("jw_side", request.BuyFixed ? "buy" : "sell");
+            AddParamIfNotEmpty("jw_side", request.Side);
             AddParamIfNotEmpty("jw_operation ", request.Operation);
             AddParamIfNotEmpty("jw_cardId", request.CardId);
             AddParamIfNotEmpty("jw_receiveMethodId", request.ReceiveMethodId);
