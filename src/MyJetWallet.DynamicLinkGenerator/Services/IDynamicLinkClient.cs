@@ -34,4 +34,5 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request);
     public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request);
     public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request);
+    public (string longLink, string shortLink) GenerateP2PMethodAvailableLink(P2PMethodAvailableLinkRequest linkRequest);
 }

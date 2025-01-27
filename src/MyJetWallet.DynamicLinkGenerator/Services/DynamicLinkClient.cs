@@ -1,6 +1,5 @@
 using System;
 using System.Collections.Generic;
-using System.Linq;
 using System.Web;
 using MyJetWallet.DynamicLinkGenerator.Models;
 using MyJetWallet.DynamicLinkGenerator.NoSql;
@@ -68,6 +67,24 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             }
 
             return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, parameters.ToArray());
+
+            void AddParamIfNotEmpty(string key, string value)
+            {
+                if (!string.IsNullOrWhiteSpace(value))
+                {
+                    parameters.Add((key,value));
+                }
+            }
+        }
+
+        public (string longLink, string shortLink) GenerateP2PMethodAvailableLink(P2PMethodAvailableLinkRequest linkRequest)
+        {
+            var parameters = new List<(string, string)>();
+            AddParamIfNotEmpty("jw_method_name", linkRequest.MethodName);
+            AddParamIfNotEmpty("jw_type_operation", linkRequest.TypeOperation);
+            AddParamIfNotEmpty("jw_country", linkRequest.Country);
+
+            return GenerateDeepLink(ActionEnum.P2PMethodAvailable, linkRequest.Brand, parameters.ToArray());
 
             void AddParamIfNotEmpty(string key, string value)
             {
