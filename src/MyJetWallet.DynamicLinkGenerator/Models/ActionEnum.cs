@@ -36,7 +36,8 @@ public enum ActionEnum
     Jar,
     MarketsScreen,
     UnfinishedOperation,
-    P2PMethodAvailable
+    P2PMethodAvailable,
+    CardHistory
 }
 
 public static class ActionExtensions
@@ -82,6 +83,7 @@ public static class ActionExtensions
             ActionEnum.MarketsScreen => "MarketsScreen",
             ActionEnum.UnfinishedOperation => "jw_unfinished_operation",
             ActionEnum.P2PMethodAvailable => "jw_p2p_method_available",
+            ActionEnum.CardHistory => "crypto_card_history",
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }
