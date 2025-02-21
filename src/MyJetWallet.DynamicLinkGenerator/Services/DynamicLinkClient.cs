@@ -64,7 +64,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             AddParamIfNotEmpty("jw_ibanBankCode", request.IbanBankCode);
             if (request.IsFromFixed.HasValue)
             {
-                AddParamIfNotEmpty("jw_isFromFixed", request.IsFromFixed.Value.ToString());
+                AddParamIfNotEmpty("jw_isFromFixed", request.IsFromFixed.Value.ToString().ToLower());
             }
 
             return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, parameters.ToArray());
