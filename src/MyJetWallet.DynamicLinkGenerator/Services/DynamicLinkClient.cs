@@ -50,24 +50,24 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request)
         {
             var parameters = new List<(string, string)>();
-            AddParamIfNotEmpty("jw_fromasset", request.FromAsset);
-            AddParamIfNotEmpty("jw_toasset", request.ToAsset);
-            AddParamIfNotEmpty("jw_fromamount", request.FromAmount);
-            AddParamIfNotEmpty("jw_toamount", request.ToAmount);
+            AddParamIfNotEmpty("jw_fromAsset", request.FromAsset);
+            AddParamIfNotEmpty("jw_toAsset", request.ToAsset);
+            AddParamIfNotEmpty("jw_fromAmount", request.FromAmount);
+            AddParamIfNotEmpty("jw_toAmount", request.ToAmount);
             AddParamIfNotEmpty("jw_amount", request.Amount);
             AddParamIfNotEmpty("jw_side", request.Side);
             AddParamIfNotEmpty("jw_operation ", request.Operation);
-            AddParamIfNotEmpty("jw_cardid", request.CardId);
-            AddParamIfNotEmpty("jw_receivemethodid", request.ReceiveMethodId);
-            AddParamIfNotEmpty("jw_accountid", request.AccountId);
-            AddParamIfNotEmpty("jw_toiban", request.ToIban);
-            AddParamIfNotEmpty("jw_ibanbankcode", request.IbanBankCode);
+            AddParamIfNotEmpty("jw_cardId", request.CardId);
+            AddParamIfNotEmpty("jw_receiveMethodId", request.ReceiveMethodId);
+            AddParamIfNotEmpty("jw_accountID", request.AccountId);
+            AddParamIfNotEmpty("jw_toIban", request.ToIban);
+            AddParamIfNotEmpty("jw_ibanBankCode", request.IbanBankCode);
             if (request.IsFromFixed.HasValue)
             {
-                AddParamIfNotEmpty("jw_isfromfixed", request.IsFromFixed.Value.ToString().ToLower());
+                AddParamIfNotEmpty("jw_isFromFixed", request.IsFromFixed.Value.ToString().ToLower());
             }
 
-            return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, parameters.ToArray());
+            return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, paramsArray: parameters.ToArray());
 
             void AddParamIfNotEmpty(string key, string value)
             {
