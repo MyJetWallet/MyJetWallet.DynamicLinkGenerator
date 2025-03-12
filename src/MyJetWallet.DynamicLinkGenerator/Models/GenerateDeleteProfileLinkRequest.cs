@@ -1,8 +1,8 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class DeleteProfileLinkRequest
+    public class DeleteProfileLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
         public string Code { get; set; }
     }
 }

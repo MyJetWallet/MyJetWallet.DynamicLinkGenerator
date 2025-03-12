@@ -1,6 +1,6 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class KycDocsApprovedLinkRequest
+public class KycDocsApprovedLinkRequest: BaseLinkRequest
 {
-    public string Brand { get; set; }
+
 }

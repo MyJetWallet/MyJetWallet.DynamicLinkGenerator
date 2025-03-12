@@ -1,7 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class RecurringBuyLinkRequest
+    public class RecurringBuyLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
     }
 }

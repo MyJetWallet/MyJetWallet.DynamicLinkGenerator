@@ -1,8 +1,9 @@
+using MyJetWallet.Domain;
+
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class CardHistoryLinkRequest
+public class CardHistoryLinkRequest : BaseLinkRequest
 {
-    public string Brand { get; set; }
     public string CardId { get; set; }
     public string OperationId { get; set; }
 }

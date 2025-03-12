@@ -1,7 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class InviteFriendLinkRequest
+    public class InviteFriendLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
     }
 }

@@ -1,8 +1,8 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class UnfinishedOpRequest
+public class UnfinishedOpRequest: BaseLinkRequest
 {
-    public string Brand { get; set; }
+
     public string FromAsset { get; set; }
     public string ToAsset { get; set; }
     public string FromAmount { get; set; }

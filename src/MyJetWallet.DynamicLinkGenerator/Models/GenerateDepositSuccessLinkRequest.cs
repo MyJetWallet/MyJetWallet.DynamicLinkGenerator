@@ -1,8 +1,8 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class DepositSuccessLinkRequest
+    public class DepositSuccessLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
         public string OperationId { get; set; }
     }
 }

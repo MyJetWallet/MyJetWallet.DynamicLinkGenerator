@@ -1,6 +1,6 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class KycBannedLinkRequest
+public class KycBannedLinkRequest: BaseLinkRequest
 {
-    public string Brand { get; set; }
+
 }

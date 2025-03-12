@@ -1,6 +1,7 @@
 using System;
 using System.Collections.Generic;
 using System.Web;
+using MyJetWallet.Domain;
 using MyJetWallet.DynamicLinkGenerator.Models;
 using MyJetWallet.DynamicLinkGenerator.NoSql;
 using MyNoSqlServer.Abstractions;
@@ -16,36 +17,36 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             _reader = reader;
         }
         
-        public (string longLink, string shortLink) GenerateLoginLink(LoginLinkRequest request) => GenerateDeepLink(ActionEnum.Login, request.Brand, ("jw_email", request.Email));
-        public (string longLink, string shortLink) GenerateConfirmEmailLink(ConfirmEmailLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmEmail, request.Brand, ("jw_code", request.Code), ("jw_token", request.Token));
-        [Obsolete] public (string longLink, string shortLink) GenerateForgotPasswordLink(ForgotPasswordLinkRequest request) => GenerateDeepLink(ActionEnum.ForgotPassword, request.Brand, ("jw_token", request.Token), ("jw_code", request.Code));
-        [Obsolete] public (string longLink, string shortLink) GenerateConfirmedWithdrawalLink(WithdrawalLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.Brand, ("jw_operation_id", request.OperationId));
-        [Obsolete] public (string longLink, string shortLink) GenerateConfirmedTransferLink(TransferLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmTransfer, request.Brand, ("jw_operation_id", request.OperationId));
-        [Obsolete] public (string longLink, string shortLink) GenerateInviteFriendLink(InviteFriendLinkRequest request) => GenerateDeepLink(ActionEnum.InviteFriend, request.Brand);
-        [Obsolete] public (string longLink, string shortLink) GenerateKycVerificationLink(KycVerificationLinkRequest request) => GenerateDeepLink(ActionEnum.KycVerification, request.Brand);
-        [Obsolete] public (string longLink, string shortLink) GenerateDepositStartLink(DepositStartLinkRequest request) => GenerateDeepLink(ActionEnum.DepositStart, request.Brand);
-        [Obsolete] public (string longLink, string shortLink) GenerateTradingStartLink(TradingStartLinkRequest request) => GenerateDeepLink(ActionEnum.TradingStart, request.Brand);
-        [Obsolete]public (string longLink, string shortLink) GenerateVerifyWithdrawalLink(VerifyWithdrawalLinkRequest request) => GenerateDeepLink(ActionEnum.VerifyWithdrawal, request.Brand, ("jw_operation_id", request.OperationId), ("jw_code", request.Code));
-        [Obsolete]public (string longLink, string shortLink) GenerateVerifyTransferLink(VerifyTransferLinkRequest request) => GenerateDeepLink(ActionEnum.VerifyTransfer, request.Brand, ("jw_operation_id", request.OperationId), ("jw_code", request.Code));
-        [Obsolete]public (string longLink, string shortLink) GenerateEarnLandingLink(EarnLandingLinkRequest request) => GenerateDeepLink(ActionEnum.EarnLanding, request.Brand);
-        [Obsolete]public (string longLink, string shortLink) GenerateKycSuccessLink(KycSuccessLinkRequest request) => GenerateDeepLink(ActionEnum.KycSuccess, request.Brand);
-        [Obsolete]public (string longLink, string shortLink) GenerateKycFailLink(KycFailLinkRequest request) => GenerateDeepLink(ActionEnum.KycFail, request.Brand);
-        [Obsolete]public (string longLink, string shortLink) GenerateRecurringBuyLink(RecurringBuyLinkRequest request) => GenerateDeepLink(ActionEnum.RecurringBuyStart, request.Brand);
-        [Obsolete]public (string longLink, string shortLink) GenerateProfileDeleteLink(DeleteProfileLinkRequest request) => GenerateDeepLink(ActionEnum.ProfileDelete, request.Brand, ("jw_code", request.Code));
-        [Obsolete] public (string longLink, string shortLink) GenerateHighYieldLink(HighYieldLinkRequest request) => GenerateDeepLink(ActionEnum.HighYield, request.Brand);
-        public (string longLink, string shortLink) GenerateSupportLink(SupportLinkRequest request) => GenerateDeepLink(ActionEnum.SupportPage, request.Brand);
-        public (string longLink, string shortLink) GenerateDepositSuccessLink(DepositSuccessLinkRequest request) => GenerateDeepLink(ActionEnum.DepositSuccess, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateKycDocumentsDeclinedLink(KycDocsDeclinedLinkRequest request) => GenerateDeepLink(ActionEnum.KycDocumentsDeclined, request.Brand);
-        public (string longLink, string shortLink) GenerateKycDocumentsApprovedLink(KycDocsApprovedLinkRequest request) => GenerateDeepLink(ActionEnum.KycDocumentsApproved, request.Brand);
-        public (string longLink, string shortLink) GenerateKycBannedLink(KycBannedLinkRequest request) => GenerateDeepLink(ActionEnum.KycBanned, request.Brand);
-        public (string longLink, string shortLink) GenerateOperationHistoryLink(OperationHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.OperationHistory, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateWithdrawalDeclinedLink(WithdrawalDeclinedLinkRequest request) => GenerateDeepLink(ActionEnum.WithdrawalDecline, request.Brand, ("jw_asset", request.Asset));
-        public (string longLink, string shortLink) GenerateGiftIncomingLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftIncoming, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateGiftReminderLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftReminder, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftCancelled, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftExpired, request.Brand, ("jw_operation_id", request.OperationId));
-        public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request) => GenerateDeepLink(ActionEnum.Jar, request.Brand, ("jw_jar_id", request.JarId));
-        public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.CardHistory, request.Brand, ("crypto_card_id", request.CardId), ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateLoginLink(LoginLinkRequest request) => GenerateDeepLink(ActionEnum.Login, request.Platform, ("jw_email", request.Email));
+        public (string longLink, string shortLink) GenerateConfirmEmailLink(ConfirmEmailLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmEmail, request.Platform, ("jw_code", request.Code), ("jw_token", request.Token));
+        [Obsolete] public (string longLink, string shortLink) GenerateForgotPasswordLink(ForgotPasswordLinkRequest request) => GenerateDeepLink(ActionEnum.ForgotPassword, request.Platform, ("jw_token", request.Token), ("jw_code", request.Code));
+        [Obsolete] public (string longLink, string shortLink) GenerateConfirmedWithdrawalLink(WithdrawalLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.Platform, ("jw_operation_id", request.OperationId));
+        [Obsolete] public (string longLink, string shortLink) GenerateConfirmedTransferLink(TransferLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmTransfer, request.Platform, ("jw_operation_id", request.OperationId));
+        [Obsolete] public (string longLink, string shortLink) GenerateInviteFriendLink(InviteFriendLinkRequest request) => GenerateDeepLink(ActionEnum.InviteFriend, request.Platform);
+        [Obsolete] public (string longLink, string shortLink) GenerateKycVerificationLink(KycVerificationLinkRequest request) => GenerateDeepLink(ActionEnum.KycVerification, request.Platform);
+        [Obsolete] public (string longLink, string shortLink) GenerateDepositStartLink(DepositStartLinkRequest request) => GenerateDeepLink(ActionEnum.DepositStart, request.Platform);
+        [Obsolete] public (string longLink, string shortLink) GenerateTradingStartLink(TradingStartLinkRequest request) => GenerateDeepLink(ActionEnum.TradingStart, request.Platform);
+        [Obsolete]public (string longLink, string shortLink) GenerateVerifyWithdrawalLink(VerifyWithdrawalLinkRequest request) => GenerateDeepLink(ActionEnum.VerifyWithdrawal, request.Platform, ("jw_operation_id", request.OperationId), ("jw_code", request.Code));
+        [Obsolete]public (string longLink, string shortLink) GenerateVerifyTransferLink(VerifyTransferLinkRequest request) => GenerateDeepLink(ActionEnum.VerifyTransfer, request.Platform, ("jw_operation_id", request.OperationId), ("jw_code", request.Code));
+        [Obsolete]public (string longLink, string shortLink) GenerateEarnLandingLink(EarnLandingLinkRequest request) => GenerateDeepLink(ActionEnum.EarnLanding, request.Platform);
+        [Obsolete]public (string longLink, string shortLink) GenerateKycSuccessLink(KycSuccessLinkRequest request) => GenerateDeepLink(ActionEnum.KycSuccess, request.Platform);
+        [Obsolete]public (string longLink, string shortLink) GenerateKycFailLink(KycFailLinkRequest request) => GenerateDeepLink(ActionEnum.KycFail, request.Platform);
+        [Obsolete]public (string longLink, string shortLink) GenerateRecurringBuyLink(RecurringBuyLinkRequest request) => GenerateDeepLink(ActionEnum.RecurringBuyStart, request.Platform);
+        [Obsolete]public (string longLink, string shortLink) GenerateProfileDeleteLink(DeleteProfileLinkRequest request) => GenerateDeepLink(ActionEnum.ProfileDelete, request.Platform, ("jw_code", request.Code));
+        [Obsolete] public (string longLink, string shortLink) GenerateHighYieldLink(HighYieldLinkRequest request) => GenerateDeepLink(ActionEnum.HighYield, request.Platform);
+        public (string longLink, string shortLink) GenerateSupportLink(SupportLinkRequest request) => GenerateDeepLink(ActionEnum.SupportPage, request.Platform);
+        public (string longLink, string shortLink) GenerateDepositSuccessLink(DepositSuccessLinkRequest request) => GenerateDeepLink(ActionEnum.DepositSuccess, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateKycDocumentsDeclinedLink(KycDocsDeclinedLinkRequest request) => GenerateDeepLink(ActionEnum.KycDocumentsDeclined, request.Platform);
+        public (string longLink, string shortLink) GenerateKycDocumentsApprovedLink(KycDocsApprovedLinkRequest request) => GenerateDeepLink(ActionEnum.KycDocumentsApproved, request.Platform);
+        public (string longLink, string shortLink) GenerateKycBannedLink(KycBannedLinkRequest request) => GenerateDeepLink(ActionEnum.KycBanned, request.Platform);
+        public (string longLink, string shortLink) GenerateOperationHistoryLink(OperationHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.OperationHistory, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateWithdrawalDeclinedLink(WithdrawalDeclinedLinkRequest request) => GenerateDeepLink(ActionEnum.WithdrawalDecline, request.Platform, ("jw_asset", request.Asset));
+        public (string longLink, string shortLink) GenerateGiftIncomingLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftIncoming, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateGiftReminderLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftReminder, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateGiftCancelledLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftCancelled, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateGiftExpiredLink(OperationLinkRequest request) => GenerateDeepLink(ActionEnum.GiftExpired, request.Platform, ("jw_operation_id", request.OperationId));
+        public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request) => GenerateDeepLink(ActionEnum.Jar, request.Platform, ("jw_jar_id", request.JarId));
+        public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.CardHistory, request.Platform, ("crypto_card_id", request.CardId), ("jw_operation_id", request.OperationId));
 
         public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request)
         {
@@ -67,7 +68,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
                 AddParamIfNotEmpty("jw_isFromFixed", request.IsFromFixed.Value.ToString().ToLower());
             }
 
-            return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Brand, paramsArray: parameters.ToArray());
+            return GenerateDeepLink(ActionEnum.UnfinishedOperation, request.Platform, paramsArray: parameters.ToArray());
 
             void AddParamIfNotEmpty(string key, string value)
             {
@@ -85,7 +86,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             AddParamIfNotEmpty("jw_type_operation", linkRequest.TypeOperation);
             AddParamIfNotEmpty("jw_country", linkRequest.Country);
 
-            return GenerateDeepLink(ActionEnum.P2PMethodAvailable, linkRequest.Brand, parameters.ToArray());
+            return GenerateDeepLink(ActionEnum.P2PMethodAvailable, linkRequest.Platform, parameters.ToArray());
 
             void AddParamIfNotEmpty(string key, string value)
             {
@@ -96,13 +97,13 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
             }
         }
 
-        private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, string brand, params(string, string)[] paramsArray)
+        private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, PlatformType platform, params(string, string)[] paramsArray)
         {
             var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),
-                DynamicLinkSettingsNoSql.GenerateRowKey(brand));
+                DynamicLinkSettingsNoSql.GenerateRowKey(platform));
             
             if (parameters == null)
-                throw new ArgumentException($"Unable to get link parameters for brand {brand}");
+                throw new ArgumentException($"Unable to get link parameters for platform {platform}");
             
             var deepLink = $"{parameters.DomainUriPrefix}/action/{action.GetString()}";
             foreach (var (name, value) in paramsArray) 

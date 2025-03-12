@@ -1,8 +1,8 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class ForgotPasswordLinkRequest
+    public class ForgotPasswordLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
         public string Token { get; set; }
         public string Code { get; set; }
     }

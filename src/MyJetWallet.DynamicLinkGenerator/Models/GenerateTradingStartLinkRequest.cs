@@ -1,7 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class TradingStartLinkRequest
+    public class TradingStartLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
     }
 }

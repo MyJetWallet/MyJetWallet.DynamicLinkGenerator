@@ -1,7 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models
 {
-    public class EarnLandingLinkRequest
+    public class EarnLandingLinkRequest: BaseLinkRequest
     {
-        public string Brand { get; set; }
+    
     }
 }

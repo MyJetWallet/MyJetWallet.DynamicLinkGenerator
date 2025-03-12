@@ -1,7 +1,7 @@
 namespace MyJetWallet.DynamicLinkGenerator.Models;
 
-public class JarLinkRequest
+public class JarLinkRequest: BaseLinkRequest
 {
-    public string Brand { get; set; }
+
     public string JarId { get; set; }
 }
