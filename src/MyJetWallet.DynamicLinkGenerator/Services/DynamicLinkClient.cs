@@ -19,6 +19,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         
         public (string longLink, string shortLink) GenerateLoginLink(LoginLinkRequest request) => GenerateDeepLink(ActionEnum.Login, request.Platform, ("jw_email", request.Email));
         public (string longLink, string shortLink) GenerateConfirmEmailLink(ConfirmEmailLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmEmail, request.Platform, ("jw_code", request.Code), ("jw_token", request.Token));
+        public (string longLink, string shortLink) GenerateConfirmEmailLinkNonCustodial(ConfirmEmailLinkRequest request) => GenerateDeepLink(ActionEnum.sc_ConfirmEmail, request.Platform, ("jw_code", request.Code), ("jw_token", request.Token));
         [Obsolete] public (string longLink, string shortLink) GenerateForgotPasswordLink(ForgotPasswordLinkRequest request) => GenerateDeepLink(ActionEnum.ForgotPassword, request.Platform, ("jw_token", request.Token), ("jw_code", request.Code));
         [Obsolete] public (string longLink, string shortLink) GenerateConfirmedWithdrawalLink(WithdrawalLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmWithdrawal, request.Platform, ("jw_operation_id", request.OperationId));
         [Obsolete] public (string longLink, string shortLink) GenerateConfirmedTransferLink(TransferLinkRequest request) => GenerateDeepLink(ActionEnum.ConfirmTransfer, request.Platform, ("jw_operation_id", request.OperationId));

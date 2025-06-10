@@ -6,6 +6,7 @@ public interface IDynamicLinkClient
 {
     public (string longLink, string shortLink) GenerateLoginLink(LoginLinkRequest request);
     public (string longLink, string shortLink) GenerateConfirmEmailLink(ConfirmEmailLinkRequest request);
+    public (string longLink, string shortLink) GenerateConfirmEmailLinkNonCustodial(ConfirmEmailLinkRequest request);
     public (string longLink, string shortLink) GenerateForgotPasswordLink(ForgotPasswordLinkRequest request);
     public (string longLink, string shortLink) GenerateConfirmedWithdrawalLink(WithdrawalLinkRequest request);
     public (string longLink, string shortLink) GenerateConfirmedTransferLink(TransferLinkRequest request);

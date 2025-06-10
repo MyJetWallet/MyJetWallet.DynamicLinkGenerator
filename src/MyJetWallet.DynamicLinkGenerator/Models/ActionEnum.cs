@@ -37,7 +37,8 @@ public enum ActionEnum
     MarketsScreen,
     UnfinishedOperation,
     P2PMethodAvailable,
-    CardHistory
+    CardHistory,
+    sc_ConfirmEmail,
 }
 
 public static class ActionExtensions
