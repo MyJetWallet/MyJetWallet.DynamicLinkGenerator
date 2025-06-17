@@ -38,7 +38,7 @@ public enum ActionEnum
     UnfinishedOperation,
     P2PMethodAvailable,
     CardHistory,
-    sc_ConfirmEmail,
+    ConfirmEmailNonCustodial,
 }
 
 public static class ActionExtensions
@@ -85,6 +85,7 @@ public static class ActionExtensions
             ActionEnum.UnfinishedOperation => "jw_unfinished_operation",
             ActionEnum.P2PMethodAvailable => "jw_p2p_method_available",
             ActionEnum.CardHistory => "crypto_card_history",
+            ActionEnum.ConfirmEmailNonCustodial => "sc_ConfirmEmail",
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }
