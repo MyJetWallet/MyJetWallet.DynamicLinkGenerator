@@ -38,4 +38,7 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateP2PMethodAvailableLink(P2PMethodAvailableLinkRequest linkRequest);
     public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request);
 
+    public (string longLink, string shortLink) GenerateEmbeddedOperationHistoryLink(
+        OperationEmbeddedHistoryLinkRequest request);
+
 }
