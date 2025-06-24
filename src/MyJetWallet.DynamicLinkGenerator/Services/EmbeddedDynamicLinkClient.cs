@@ -11,7 +11,8 @@ public class EmbeddedDynamicLinkClient : IEmbeddedDynamicLinkClient
 {
     public (string longLink, string shortLink) GenerateEmbeddedOperationHistoryLink(string accountId, string historyId) 
         => GenerateDeepLink(ActionEmbeddedEnum.EmbeddedOperationHistory, ("jw_account_id", accountId), ("jw_history_id", historyId));
-        
+    public (string longLink, string shortLink) GenerateEmbeddedDiscoveryLink(DiscoveryTabActionEnum tab) 
+        => GenerateDeepLink(ActionEmbeddedEnum.EmbeddedDiscovery, ("jw_tab", tab.ToString()));
         
     #region technical methods
     private readonly IMyNoSqlServerDataReader<DynamicLinkSettingsNoSql> _reader;
