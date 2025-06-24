@@ -21,6 +21,12 @@ namespace MyJetWallet.DynamicLinkGenerator.Ioc
                 .RegisterType<DynamicLinkClient>()
                 .As<IDynamicLinkClient>()
                 .SingleInstance();
+            
+            
+            builder
+                .RegisterType<EmbeddedDynamicLinkClient>()
+                .As<IEmbeddedDynamicLinkClient>()
+                .SingleInstance();
         }
 
         public static void RegisterDynamicLinkSettingsWriter(this ContainerBuilder builder, Func<string> myNoSqlWriterUrl)
