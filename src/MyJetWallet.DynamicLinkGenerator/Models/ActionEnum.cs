@@ -39,7 +39,7 @@ public enum ActionEnum
     P2PMethodAvailable,
     CardHistory,
     ConfirmEmailNonCustodial,
-    
+    WirexCard,
     
 }
 
@@ -88,6 +88,7 @@ public static class ActionExtensions
             ActionEnum.P2PMethodAvailable => "jw_p2p_method_available",
             ActionEnum.CardHistory => "crypto_card_history",
             ActionEnum.ConfirmEmailNonCustodial => "sc_ConfirmEmail",
+            ActionEnum.WirexCard => "wirex_card",
             
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
