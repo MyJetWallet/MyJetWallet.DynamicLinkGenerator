@@ -40,7 +40,8 @@ public enum ActionEnum
     CardHistory,
     ConfirmEmailNonCustodial,
     WirexCard,
-    
+    WirexLimits,
+
 }
 
 public static class ActionExtensions
@@ -89,7 +90,8 @@ public static class ActionExtensions
             ActionEnum.CardHistory => "crypto_card_history",
             ActionEnum.ConfirmEmailNonCustodial => "sc_ConfirmEmail",
             ActionEnum.WirexCard => "wirex_card",
-            
+            ActionEnum.WirexLimits => "wirex_limits",
+
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };
 }

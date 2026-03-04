@@ -49,6 +49,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateJarLink(JarLinkRequest request) => GenerateDeepLink(ActionEnum.Jar, request.Platform, ("jw_jar_id", request.JarId));
         public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.CardHistory, request.Platform, ("crypto_card_id", request.CardId), ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateWirexCardLink(WirexCardLinkRequest request) => GenerateDeepLink(ActionEnum.WirexCard, request.Platform, ("jw_cardId", request.CardId));
+        public (string longLink, string shortLink) GenerateWirexLimitsLink(WirexLimitsLinkRequest request) => GenerateDeepLink(ActionEnum.WirexLimits, request.Platform);
 
         public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request)
         {
