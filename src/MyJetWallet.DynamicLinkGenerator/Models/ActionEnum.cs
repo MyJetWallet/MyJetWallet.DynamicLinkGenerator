@@ -41,7 +41,7 @@ public enum ActionEnum
     ConfirmEmailNonCustodial,
     WirexCard,
     WirexLimits,
-
+    AntiPhishingCode
 }
 
 public static class ActionExtensions
@@ -91,6 +91,7 @@ public static class ActionExtensions
             ActionEnum.ConfirmEmailNonCustodial => "sc_ConfirmEmail",
             ActionEnum.WirexCard => "wirex_card",
             ActionEnum.WirexLimits => "wirex_limits",
+            ActionEnum.AntiPhishingCode => "anti_phishing_code",
 
             _ => throw new ArgumentOutOfRangeException(nameof(actionEnum), actionEnum, null)
         };

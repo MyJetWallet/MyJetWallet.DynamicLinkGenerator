@@ -39,4 +39,5 @@ public interface IDynamicLinkClient
     public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request);
     public (string longLink, string shortLink) GenerateWirexCardLink(WirexCardLinkRequest request);
     public (string longLink, string shortLink) GenerateWirexLimitsLink(WirexLimitsLinkRequest request);
+    public (string longLink, string shortLink) GenerateAntiPhishingLink(AntiPhishingLinkRequest request);
 }
