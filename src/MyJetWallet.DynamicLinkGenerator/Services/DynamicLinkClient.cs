@@ -50,7 +50,7 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
         public (string longLink, string shortLink) GenerateCardHistoryLink(CardHistoryLinkRequest request) => GenerateDeepLink(ActionEnum.CardHistory, request.Platform, ("crypto_card_id", request.CardId), ("jw_operation_id", request.OperationId));
         public (string longLink, string shortLink) GenerateWirexCardLink(WirexCardLinkRequest request) => GenerateDeepLink(ActionEnum.WirexCard, request.Platform, ("jw_cardId", request.CardId));
         public (string longLink, string shortLink) GenerateWirexLimitsLink(WirexLimitsLinkRequest request) => GenerateDeepLink(ActionEnum.WirexLimits, request.Platform);
-        public (string longLink, string shortLink) GenerateAntiPhishingLink(AntiPhishingLinkRequest request) => GenerateDeepLink(ActionEnum.AntiPhishingCode, request.Platform);
+        public (string longLink, string shortLink) GenerateAntiPhishingLink(AntiPhishingLinkRequest request) => GenerateRelativeDeepLink(ActionEnum.AntiPhishingCode, request.Platform);
 
         public (string longLink, string shortLink) GenerateUnfinishedOpLink(UnfinishedOpRequest request)
         {
@@ -99,6 +99,26 @@ namespace MyJetWallet.DynamicLinkGenerator.Services
                     parameters.Add((key,value));
                 }
             }
+        }
+
+        private (string longLink, string shortLink) GenerateRelativeDeepLink(ActionEnum action, PlatformType platform, params(string, string)[] paramsArray)
+        {
+            var parameters = _reader.Get(DynamicLinkSettingsNoSql.GeneratePartitionKey(),
+                DynamicLinkSettingsNoSql.GenerateRowKey(platform));
+
+            if (parameters == null)
+                throw new ArgumentException($"Unable to get link parameters for platform {platform}");
+
+            var deepLink = $"action/{action.GetString()}";
+            foreach (var (name, value) in paramsArray)
+            {
+                if(string.IsNullOrWhiteSpace(value))
+                    continue;
+                deepLink = $"{deepLink}/{name}/{value}";
+            }
+
+            var link = $"{parameters.BaseLink}?af_xp={parameters.AfXp}&pid={parameters.Pid}&c={parameters.C}&deep_link_value={HttpUtility.UrlEncode(deepLink)}";
+            return (link, deepLink);
         }
 
         private (string longLink, string shortLink) GenerateDeepLink(ActionEnum action, PlatformType platform, params(string, string)[] paramsArray)
